@@ -1,4 +1,20 @@
 .jumbotron {
-  margin: auto; 
+  margin: auto;
 
+}
+
+#pizzasize {
+
+}
+
+#pizzatopping {
+  display: none;
+}
+
+#order {
+  display: none;
+}
+
+#ordertotal {
+  display: none;
 }
