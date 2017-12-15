@@ -1,17 +1,20 @@
 // business logic
-var small = 6;
-var medium = 8;
-var large = 12;
+var size = {small:6, medium:8, large:12};
+var topping ={pepperoni:2, sausage:2, ham:2, bacon:1, olive:1, onion:1, pineapple:2, spinach:1};
 
-var pepperoni = 2;
-var sausage = 2;
-var ham = 2;
-var bacon = 1;
-
-var olive = 1;
-var onion = 1;
-var pineapple = 2;
-var spinach = 1;
+// var small = 6;
+// var medium = 8;
+// var large = 12;
+//
+// var pepperoni = 2;
+// var sausage = 2;
+// var ham = 2;
+// var bacon = 1;
+//
+// var olive = 1;
+// var onion = 1;
+// var pineapple = 2;
+// var spinach = 1;
 
 
 // user logic
