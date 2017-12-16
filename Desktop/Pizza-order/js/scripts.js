@@ -5,16 +5,18 @@ var topping ={pepperoni:2, sausage:2, ham:2, bacon:1, olive:1, onion:1, pineappl
 var small = 6;
 var medium = 8;
 var large = 12;
-//
-// var pepperoni = 2;
-// var sausage = 2;
-// var ham = 2;
-// var bacon = 1;
-//
-// var olive = 1;
-// var onion = 1;
-// var pineapple = 2;
-// var spinach = 1;
+
+var pepperoni = 2;
+var sausage = 2;
+var ham = 2;
+var bacon = 1;
+
+var olive = 1;
+var onion = 1;
+var pineapple = 2;
+var spinach = 1;
+
+var userToppings = [];
 
 function pizza(size) {
   this.size = size;
@@ -30,6 +32,7 @@ pizza.prototype.pizzaSizePrice = function() {
      var sizePrice = large;
    }
   console.log(sizePrice);
+
   return sizePrice;
 
 }
@@ -37,28 +40,21 @@ pizza.prototype.pizzaSizePrice = function() {
 
 // user logic
 $(document).ready(function() {
-  $("#pizzasize").submit(function(event) {
+  $("#pizza").submit(function(event) {
     event.preventDefault();
     $("#pizzasize").hide();
     $("#pizzatopping").fadeIn();
     var inputtedSize = $("input:radio[name=pizza-size]:checked").val();
-    var newPizza = new pizza(inputtedSize);
+    $("input:checkbox[name=topping]:checked").each(function() {
+      var toppings = $(this).val();
+      userToppings.push(toppings + " ");
+    });
+    var newPizza = new pizza(inputtedSize, userToppings);
     var newPizzaPrice = newPizza.pizzaSizePrice();
+
+    console.log(userToppings);
 
 
     });
-  $("#pizzatopping").submit(function(event) {
-    event.preventDefault();
-    $("#pizzatopping").hide();
-    $("#order").fadeIn();
-    // var inputtedToppings = $("checkbox[name=topping]:checked").val();
-  });
-  $("#order").submit(function(event) {
-    event.preventDefault();
-    $("#order").hide();
-    $("#ordertotal").fadeIn();
 
-
-
-  });
 });
