@@ -16,8 +16,11 @@ Pizza.prototype.pizzaPrice = function() {
   } else if(this.size === "medium") {
     var sizePrice = 10;
 
-  } else {
+  } else if(this.size === "large") {
      var sizePrice = 12;
+  } else {
+    alert("Please select a pizza size!");
+    return(pizzaPrice);
   }
   this.price = sizePrice + (this.meatTopping.length * 2) + this.veggieTopping.length;
 }
