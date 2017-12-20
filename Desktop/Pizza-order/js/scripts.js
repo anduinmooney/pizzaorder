@@ -1,40 +1,27 @@
 // business logic
-var size = {small:6, medium:8, large:12};
-var topping ={pepperoni:2, sausage:2, ham:2, bacon:1, olive:1, onion:1, pineapple:2, spinach:1};
+var userMeatToppings = [];
+var userVeggieToppings = [];
 
-var small = 6;
-var medium = 8;
-var large = 12;
-
-var pepperoni = 2;
-var sausage = 2;
-var ham = 2;
-var bacon = 1;
-
-var olive = 1;
-var onion = 1;
-var pineapple = 2;
-var spinach = 1;
-
-var userToppings = [];
-
-function pizza(size) {
+function Pizza(size, meatTopping, veggieTopping, price) {
   this.size = size;
-  this.topping= topping;
+  this.meatTopping = meatTopping;
+  this.veggieTopping = veggieTopping;
+  this.price = 0;
 }
 
-pizza.prototype.pizzaSizePrice = function() {
+Pizza.prototype.pizzaSizePrice = function() {
   if(this.size === "small") {
-    var sizePrice = small;
+    var sizePrice = 8;
+
   } else if(this.size ==="medium") {
-    var sizePrice = medium;
+    var sizePrice = 10;
+
   } else {
-     var sizePrice = large;
-   }
+     var sizePrice = 12;
+  }
   console.log(sizePrice);
-
-  return sizePrice;
-
+  this.price = sizePrice + (this.meatTopping.length * 2) + this.veggieTopping.length;
+  console.log(this.price);
 }
 
 
@@ -45,16 +32,20 @@ $(document).ready(function() {
     $("#pizzasize").hide();
     $("#pizzatopping").fadeIn();
     var inputtedSize = $("input:radio[name=pizza-size]:checked").val();
-    $("input:checkbox[name=topping]:checked").each(function() {
-      var toppings = $(this).val();
-      userToppings.push(toppings + " ");
+    $("input:checkbox[name=topping-meat]:checked").each(function() {
+      var meatToppings = $(this).val();
+      userMeatToppings.push(meatToppings + " ");
     });
-    var newPizza = new pizza(inputtedSize, userToppings);
+    $("input:checkbox[name=topping-veggie]:checked").each(function() {
+      var veggieToppings = $(this).val();
+      userVeggieToppings.push(veggieToppings + " ");
+    });
+    var newPizza = new Pizza(inputtedSize, userMeatToppings, userVeggieToppings);
     var newPizzaPrice = newPizza.pizzaSizePrice();
 
-    console.log(userToppings);
+    console.log(userMeatToppings);
+    console.log(userVeggieToppings);
 
 
     });
-
 });
