@@ -13,7 +13,7 @@ Pizza.prototype.pizzaPrice = function() {
   if(this.size === "small") {
     var sizePrice = 8;
 
-  } else if(this.size ==="medium") {
+  } else if(this.size === "medium") {
     var sizePrice = 10;
 
   } else {
@@ -29,6 +29,7 @@ $(document).ready(function() {
     event.preventDefault();
     var userMeatToppings = [];
     var userVeggieToppings = [];
+    $(".orderTotalWell").show();
     var inputtedSize = $("input:radio[name=pizza-size]:checked").val();
     $("input:checkbox[name=topping-meat]:checked").each(function() {
       var meatToppings = $(this).val();

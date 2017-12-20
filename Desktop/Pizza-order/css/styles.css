@@ -1,8 +1,34 @@
 .jumbotron {
   margin: auto;
+  text-align: center;
+  background-color: darkred;
+  color: white;
+  font-family: cursive;
+  font-style: italic;
+
 
 }
 
-#pizzasize {
+.well {
+  max-width: 500px;
+  text-align: center;
+  margin: auto;
+  background-color: darkred;
+  color: white;
+}
 
+button {
+  margin: auto;
+  display: block;
+}
+
+body {
+  background-image: url("../img/background.png");
+}
+
+#ordertotal {
+  text-align: center;
+}
+.orderTotalWell {
+  display: none;
 }
