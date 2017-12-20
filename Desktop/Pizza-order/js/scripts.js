@@ -9,7 +9,7 @@ function Pizza(size, meatTopping, veggieTopping, price) {
   this.price = 0;
 }
 
-Pizza.prototype.pizzaSizePrice = function() {
+Pizza.prototype.pizzaPrice = function() {
   if(this.size === "small") {
     var sizePrice = 8;
 
@@ -19,9 +19,7 @@ Pizza.prototype.pizzaSizePrice = function() {
   } else {
      var sizePrice = 12;
   }
-  console.log(sizePrice);
   this.price = sizePrice + (this.meatTopping.length * 2) + this.veggieTopping.length;
-  console.log(this.price);
 }
 
 
@@ -41,11 +39,7 @@ $(document).ready(function() {
       userVeggieToppings.push(veggieToppings + " ");
     });
     var newPizza = new Pizza(inputtedSize, userMeatToppings, userVeggieToppings);
-    var newPizzaPrice = newPizza.pizzaSizePrice();
-
-    console.log(userMeatToppings);
-    console.log(userVeggieToppings);
-
-
+    var newPizzaPrice = newPizza.pizzaPrice();
+    $("#ordertotal").append("Your " + inputtedSize + " pizza will cost $" + newPizza.price + ", have a nice day, and thank you for your order!");
     });
 });
