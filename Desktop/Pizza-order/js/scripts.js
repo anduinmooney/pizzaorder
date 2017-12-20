@@ -27,8 +27,8 @@ Pizza.prototype.pizzaPrice = function() {
 $(document).ready(function() {
   $("#pizza").submit(function(event) {
     event.preventDefault();
-    $("#pizzasize").hide();
-    $("#pizzatopping").fadeIn();
+    var userMeatToppings = [];
+    var userVeggieToppings = [];
     var inputtedSize = $("input:radio[name=pizza-size]:checked").val();
     $("input:checkbox[name=topping-meat]:checked").each(function() {
       var meatToppings = $(this).val();
@@ -39,7 +39,8 @@ $(document).ready(function() {
       userVeggieToppings.push(veggieToppings + " ");
     });
     var newPizza = new Pizza(inputtedSize, userMeatToppings, userVeggieToppings);
+      $("#ordertotal").empty();
     var newPizzaPrice = newPizza.pizzaPrice();
     $("#ordertotal").append("Your " + inputtedSize + " pizza will cost $" + newPizza.price + ", have a nice day, and thank you for your order!");
-    });
+  });
 });
